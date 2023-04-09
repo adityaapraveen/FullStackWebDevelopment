@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bulb On Off 1-button 1-function</title>
+    <!--On-->
+    <!--"https://img.freepik.com/free-vector/realistic-light-bulb-with-electricity_23-2149129410.jpg?w=2000"-->
+    <!--Off-->
+    <!--https://toppng.com/uploads/preview/light-bulb-on-off-png-11553940208oq66nq8jew.png-->
+    <style>
+        img {
+            width: 350px;
+            height: 350px;
+            border: 5px solid black;
+            margin: 10px;
+        }
+
+        .button {
+            background-color: black;
+            color: aliceblue;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        var bulbState = false;
+
+        function toggleBulb() {
+            if (bulbState) {
+                document.getElementById("bulb").src = "https://toppng.com/uploads/preview/light-bulb-on-off-png-11553940208oq66nq8jew.png";
+                document.getElementById("status").innerHTML = "Bulb is off";
+                bulbState = false;
+            } else {
+                document.getElementById("bulb").src = "https://img.freepik.com/free-vector/realistic-light-bulb-with-electricity_23-2149129410.jpg?w=200";
+                document.getElementById("status").innerHTML = "Bulb is on";
+                bulbState = true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Bulb On Off 1-button 1-function</h1>
+    <img id="bulb" src="https://toppng.com/uploads/preview/light-bulb-on-off-png-11553940208oq66nq8jew.png">
+    <p id="status">Bulb is off</p>
+    <button onclick="toggleBulb()">Switch</button>
+</body>
+
+</html>
