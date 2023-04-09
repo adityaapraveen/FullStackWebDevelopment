@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bulb On Off 2-buttons 1-function</title>
+</head>
+
+<body>
+    <!--On-->
+    <!--"https://thumbs.dreamstime.com/b/vector-light-bulb-white-file-eps-format-34983265.jpg"-->
+    <!--Off-->
+    <!--https://w7.pngwing.com/pngs/859/425/png-transparent-light-bulb-illustration-incandescent-light-bulb-lamp-bulb-candle-product-light-thumbnail.png-->
+    <img id="bulb"
+        src="https://w7.pngwing.com/pngs/859/425/png-transparent-light-bulb-illustration-incandescent-light-bulb-lamp-bulb-candle-product-light-thumbnail.png"
+        alt="Bulb">
+    <br>
+    <br>
+    <button id="onButton" onclick="toggleBulb()">On</button>
+    <button id="offButton" onclick="toggleBulb()">Off</button>
+    <script>
+        var bulbState = false;
+        var bulbImage = document.getElementById("bulb");
+
+        function toggleBulb() {
+            if (bulbState == false) {
+                bulbImage.src = "https://thumbs.dreamstime.com/b/vector-light-bulb-white-file-eps-format-34983265.jpg";
+                width = "350px";
+                height = "350px";
+                bulbState = true;
+                onButton.disabled = true;
+                offButton.disabled = false;
+            } else {
+                bulbImage.src = "https://w7.pngwing.com/pngs/859/425/png-transparent-light-bulb-illustration-incandescent-light-bulb-lamp-bulb-candle-product-light-thumbnail.png";
+                width = "350px";
+                height = "350px";
+                bulbState = false;
+                onButton.disabled = false;
+                offButton.disabled = true;
+            }
+        }
+    </script>
+</body>
+
+</html>
