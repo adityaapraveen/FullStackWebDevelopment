@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <p>Enter the first number:</p> <input type="number" id="first">
+    <p>Enter the second number:</p> <input type="number" id="second">
+    <button onclick="add()">ADD</button>
+    <p>Sum = <input id="answer"></p>
+    
+</body>
+    <script>
+        function add() {
+            var num1 = document.getElementById("first").value;
+            var num2 = document.getElementById("second").value;
+            var sum = parseInt(num1) + parseInt(num2);
+            document.getElementById("answer").value = sum;
+        }
+    </script>
+</html>
