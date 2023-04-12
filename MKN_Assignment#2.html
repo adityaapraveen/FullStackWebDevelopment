@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Order Form</title>
+    <script type="text/javascript">
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var domainPattern = /\.(com|edu|org|net)$/;
+
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailValidation").innerHTML = "Invalid email address";
+                return false;
+            }
+            if (!domainPattern.test(email)) {
+                document.getElementById("emailValidation").innerHTML = "Email address must end with .com, .edu, .org, or .net";
+                return false;
+            }
+            document.getElementById("emailValidation").innerHTML = "";
+            return true;
+        }
+
+        function validatePhoneNumber() {
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var phoneNumberPattern = /^\d{10}$/;
+            if (!phoneNumberPattern.test(phoneNumber)) {
+                document.getElementById("phoneNumberValidation").innerHTML = "Invalid phone number";
+                return false;
+            }
+            document.getElementById("phoneNumberValidation").innerHTML = "";
+            return true;
+        }
+
+        function validateForm() {
+            return validateEmail() && validatePhoneNumber();
+        }
+    </script>
+    <style type="text/css">
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        body{
+            background-color: #bde0fe;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Order Form</h1>
+    <form onsubmit="return validateForm()">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailValidation" class="error"></span>
+        <br><br>
+        <label for="phoneNumber">Mobile Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required>
+        <span id="phoneNumberValidation" class="error"></span>
+        <br><br>
+        <label for="textbox">Address:</label>
+        <input type="text" id="textbox" name="textbox">
+        <br><br>
+        <label for="numberbox">Quantity:</label>
+        <input type="number" id="numberbox" name="numberbox" min="1" required>
+        <br><br>
+        <label for="checkbox">Speed Delivery:</label>
+        <input type="checkbox" id="checkbox" name="checkbox">
+        <br><br>
+        <label for="radiobutton1">Stickered:</label>
+        <input type="radio" id="radiobutton1" name="radiobutton" value="option1">
+        <label for="radiobutton2">Sticker less 2:</label>
+        <input type="radio" id="radiobutton2" name="radiobutton" value="option2">
+        <br><br>
+        <label for="listbox">Cube:</label>
+        <select id="listbox" name="listbox">
+            <option value="option1">3x3</option>
+            <option value="option2">3x3 Magnetic</option>
+            <option value="option3">4x4</option>
+            <option value="option4">4x4 Magnetic</option>
+            <option value="option5">5x5</option>
+            <option value="option6">5x5 Magnetic</option>
+
+        </select>
+        <br><br>
+    <label for="Delivery Instructions">Textarea:</label>
+    <br>
+    <textarea id="textarea" name="textarea"></textarea>
+    <br><br>
+    
+    <label for="calendar">Calendar:</label>
+    <br>
+    <input type="date" id="calendar" name="calendar">
+    <br><br>
+    
+    <label for="email">Email:</label>
+    <br>
+    <input type="email" id="email" name="email" required>
+    <span id="emailValidationText"></span>
+    <br><br>
+    
+    <label for="phone">Mobile Phone Number:</label>
+    <br>
+    <input type="tel" id="phone" name="phone" required>
+    <span id="phoneValidationText"></span>
+    <br><br>
+    
+    <input type="submit" value="Submit">
+    </form>
+    
+    <script>
+        const emailInput = document.getElementById("email");
+        const emailValidationText = document.getElementById("emailValidationText");
+        emailInput.addEventListener("input", function () {
+            const email = emailInput.value;
+            if (email.includes("@") && (email.endsWith(".com") || email.endsWith(".edu") || email.endsWith(".org") || email.endsWith(".net"))) {
+                emailValidationText.innerText = "";
+            } else {
+                emailValidationText.innerText = "Please enter a valid email address";
+            }
+        });
+
+        const phoneInput = document.getElementById("phone");
+        const phoneValidationText = document.getElementById("phoneValidationText");
+        phoneInput.addEventListener("input", function () {
+            const phone = phoneInput.value;
+            if (phone.length === 10 && /^\d+$/.test(phone)) {
+                phoneValidationText.innerText = "";
+            } else {
+                phoneValidationText.innerText = "Please enter a valid 10-digit phone number";
+            }
+        });
+
+        const form = document.getElementById("myForm");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const date = new Date().toLocaleDateString();
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+            const checkbox = document.getElementById("checkbox").checked;
+            const radioButton = document.querySelector('input[name="radiobutton"]:checked').value;
+            const select = document.getElementById("select").value;
+            const textarea = document.getElementById("textarea").value;
+            const calendar = document.getElementById("calendar").value;
+            const email = emailInput.value;
+            const phone = phoneInput.value;
+            const details = `Name: ${name}<br>
+    		Age: ${age}<br>
+    		Checkbox: ${checkbox}<br>
+    		Radio Button: ${radioButton}<br>
+    		Select: ${select}<br>
+    		Textarea: ${textarea}<br>
+    		Calendar: ${calendar}<br>
+    		Email: ${email}<br>
+    		Phone: ${phone}<br>`;
+            document.getElementById("output").innerHTML = `Date: ${date}<br>${details}`;
+        });
+    </script>
+    
+    <div id="output"></div>
+    </body>
+    
+    </html>
