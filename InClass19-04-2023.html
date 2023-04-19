@@ -9,6 +9,18 @@
 <body>
     <label for="state">State:</label>
     <input type="text" for="state" id="stateinput">
+    <br><br>
+    <label for="capital">Capital</label>
+    <input type="text" id="capitalinput" onchange="ChangeText()">
     <p id="displayinput"></p>
+
+    <script>
+        function ChangeText()
+        {
+            var Entry = document.getElementById("stateinput").value;
+            var Entry2 = document.getElementById("capitalinput").value;
+            document.getElementById("displayinput").innerHTML =  "I am from " + Entry + " whose capital is " + Entry2; 
+        }
+    </script>
 </body>
 </html>
