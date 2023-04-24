@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+}
+.nav-container li
+{
+    display: inline;
+    padding: 10px;
+    margin: 10px;
+}
+.nav-container ul
+{
+    background-color: black;
+}
+
+.nav-container li a{
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.nav-container li a:hover
+{
+    background-color: #ff70a6;
+}
+#banner-image
+{
+    width: 100%;
+    height:auto;
+    opacity: 0.9;
+}
+.banner-title
+{
+    position: absolute;
+    top: 40%;
+    left: 30px;;
+    font-size: 4em;
+    font-family:serif;
+}
+
+.banner-subtitle
+{
+    position: absolute;
+    top: 55%;
+    left: 10%;
+    font-size: 2em;
+}
